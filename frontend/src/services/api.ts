@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://api.ryhnnas.web.id/sipdana/api',
+  baseURL: import.meta.env.VITE_API_URL || 'https://api.ryhnnas.web.id/sipdana/api',
 });
 
 api.interceptors.request.use(
