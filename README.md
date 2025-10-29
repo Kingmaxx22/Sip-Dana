@@ -1,8 +1,7 @@
-# Sip-Dana
-
-![Uploading image.png…]()
-
 # Sip Dana 💸
+
+<img width="1827" height="999" alt="image" src="https://github.com/user-attachments/assets/af839bf4-4b3d-4491-af52-376d7f944c17" />
+
 **Aplikasi Web Pengelola Pendapatan Digital**
 
 `Sip Dana` adalah perangkat lunak berbasis digital untuk mencatat pemasukan, pengeluaran, melihat laporan keuangan, dan menerima rekomendasi finansial secara otomatis. Ini adalah aplikasi *full-stack* yang dibangun untuk membantu pengguna mengambil kendali penuh atas keuangan pribadi mereka.
