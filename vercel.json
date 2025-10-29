@@ -1,9 +1,4 @@
 {
-  "build": {
-    "env": {
-      "VITE_API_URL": "http://20.191.247.49:5001/api"
-    }
-  },
   "rewrites": [
     {
       "source": "/api/:path*",
