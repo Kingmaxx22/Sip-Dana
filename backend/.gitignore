@@ -1,0 +1,13 @@
+# Folder dependensi
+node_modules
+
+# File environment rahasia
+.env
+
+# Folder hasil compile TypeScript
+dist
+
+# Log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

@@ -1,0 +1,348 @@
+/* frontend/src/index.css (Refactored with CSS Variables) */
+
+/* === Definisi Variabel Warna SipDana === */
+:root {
+  /* Warna Primer (Biru) */
+  --sipdana-primary: #0d47a1;
+  --sipdana-primary-hover: #0b3a82;
+  --sipdana-gradient-start: #a0d8ff;
+  --sipdana-gradient-end: #4aaddf;
+
+  /* Warna Sekunder (Aksen & Status) */
+  --sipdana-secondary-light: #e0f7fa; /* Biru sangat muda (misal: header bg) */
+  --sipdana-accent-green-base: #198754; /* Success/Income base */
+  --sipdana-accent-green-text: #00875a; /* Teks hijau lebih gelap */
+  --sipdana-accent-green-bg-light: #e6f7f0; /* Background hijau muda */
+  --sipdana-accent-red-base: #dc3545; /* Danger/Expense base */
+  --sipdana-accent-red-text: #d92d20; /* Teks merah lebih gelap */
+  --sipdana-accent-red-bg-light: #fdeeee; /* Background merah muda */
+
+  /* Warna Netral */
+  --sipdana-white: #ffffff;
+  --sipdana-gray-100: #f8f9fa; /* Background halaman default */
+  --sipdana-gray-200: #e9ecef; /* Border, background hover ringan */
+  --sipdana-gray-300: #dee2e6; /* Border lebih jelas */
+  --sipdana-gray-400: #ced4da; /* Placeholder text maybe */
+  --sipdana-gray-500: #adb5bd; /* Teks placeholder */
+  --sipdana-gray-600: #6c757d; /* Teks sekunder, ikon non-aktif */
+  --sipdana-gray-700: #495057; /* Teks agak gelap */
+  --sipdana-gray-900: #212529; /* Teks utama (hitam) */
+  --sipdana-link-color: var(--sipdana-primary); /* Warna link default */
+
+  /* Warna Dasar Teks & Background */
+  --sipdana-body-bg: var(--sipdana-gray-100);
+  --sipdana-body-color: var(--sipdana-gray-900);
+  --sipdana-card-bg: var(--sipdana-white);
+  --sipdana-border-color: var(--sipdana-gray-200);
+
+  /* Font (Placeholder) */
+  --sipdana-font-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+/* ========================================= */
+
+
+/* Styling global */
+body {
+  margin: 0;
+  font-family: var(--sipdana-font-sans-serif);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--sipdana-body-bg); 
+  color: var(--sipdana-body-color); 
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+}
+
+.start-page-background {
+  background: linear-gradient(90deg, var(--sipdana-white) 20%, var(--sipdana-primary) 100%);
+  min-height: 100vh;
+}
+
+.start-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+@media (min-width: 768px) {
+  .start-page-container {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+
+.auth-page-background {
+  background: linear-gradient(160deg, var(--sipdana-gradient-start) 0%, var(--sipdana-gradient-end) 100%); 
+  min-height: 100vh;
+  width: 100%;
+  color: var(--sipdana-white); 
+}
+
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding-top: 5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  color: var(--sipdana-white); 
+}
+
+.sipdana-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  font-size: 2.25rem;
+  font-weight: bold;
+  color: var(--sipdana-primary); 
+  margin-bottom: 2rem;
+  text-decoration: none;
+}
+.auth-container .sipdana-logo,
+.sidebar-header .sipdana-logo { 
+  color: var(--sipdana-primary); 
+}
+
+.sipdana-logo-icon {
+  width: 40px;
+  height: 40px;
+  fill: currentColor; 
+}
+
+/* Form Group kustom */
+.auth-form {
+  width: 100%;
+  max-width: 500px; 
+}
+.auth-form .form-label {
+  font-weight: 600;
+  color: var(--sipdana-white);
+  margin-bottom: 0.25rem;
+}
+.auth-form .form-control,
+.auth-form .form-select { 
+  background-color: rgba(255, 255, 255, 0.9); 
+  border: 1px solid var(--sipdana-gray-300);
+  color: var(--sipdana-gray-900);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+.auth-form .form-control:focus,
+.auth-form .form-select:focus {
+  background-color: var(--sipdana-white);
+  border-color: var(--sipdana-primary);
+  box-shadow: 0 0 0 0.25rem rgba(13, 71, 161, 0.25); 
+}
+.auth-form .input-group-text {
+    background-color: var(--sipdana-gray-200);
+    border: 1px solid var(--sipdana-gray-300);
+    border-right: none;
+    color: var(--sipdana-gray-600);
+    border-radius: 0.5rem 0 0 0.5rem; 
+}
+
+.btn-sipdana-primary {
+  background-color: var(--sipdana-primary) !important;
+  border-color: var(--sipdana-primary) !important;
+  color: var(--sipdana-white) !important;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px; 
+  transition: all 0.2s ease-in-out;
+}
+.btn-sipdana-primary:hover {
+  background-color: var(--sipdana-primary-hover) !important;
+  border-color: var(--sipdana-primary-hover) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-outline-sipdana-secondary {
+  border: 1px solid var(--sipdana-primary) !important;
+  color: var(--sipdana-primary) !important;
+  background-color: transparent !important;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  transition: all 0.2s ease-in-out;
+}
+.btn-outline-sipdana-secondary:hover {
+  background-color: rgba(13, 71, 161, 0.1) !important; 
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+
+.auth-link {
+  color: var(--sipdana-white);
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 1.5rem;
+}
+.auth-link:hover {
+  color: rgba(255, 255, 255, 0.85); 
+  text-decoration: underline;
+}
+
+.start-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+}
+@media (min-width: 768px) {
+  .start-page-container {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+
+.btn-group.w-100 .btn {
+  border-radius: 0 !important;
+}
+.btn-group.w-100 .btn:first-child {
+  border-top-left-radius: 50px !important;
+  border-bottom-left-radius: 50px !important;
+}
+.btn-group.w-100 .btn:last-child {
+  border-top-right-radius: 50px !important;
+  border-bottom-right-radius: 50px !important;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  padding-bottom: 1rem;
+}
+.page-header h3 {
+  margin: 0;
+  color: var(--sipdana-white); 
+}
+
+/* Styling Modal Status */
+.status-modal .modal-content {
+  border-radius: 1rem;
+  border: none;
+  background-color: var(--sipdana-secondary-light); 
+}
+.status-modal h3 {
+  color: var(--sipdana-gray-900); 
+}
+.status-modal p {
+  color: var(--sipdana-gray-600); 
+}
+.status-modal .text-success { color: var(--sipdana-accent-green-base) !important; }
+.status-modal .text-danger { color: var(--sipdana-accent-red-base) !important; }
+.status-modal .text-primary { color: var(--sipdana-primary) !important; }
+
+.badge[bg="success-light"] {
+  background-color: var(--sipdana-accent-green-bg-light) !important;
+  color: var(--sipdana-accent-green-text) !important;
+  font-weight: 600;
+}
+.badge[bg="danger-light"] {
+  background-color: var(--sipdana-accent-red-bg-light) !important;
+  color: var(--sipdana-accent-red-text) !important;
+  font-weight: 600;
+}
+
+.icon-placeholder {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--sipdana-gray-100); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Styling Halaman Profil */
+.profile-avatar-placeholder {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: var(--sipdana-secondary-light); 
+  color: var(--sipdana-primary); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.profile-actions .list-group-item {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  color: var(--sipdana-gray-700); 
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-color: var(--sipdana-border-color); 
+}
+.profile-actions .list-group-item svg {
+  color: var(--sipdana-gray-600); 
+  margin-right: 1.5rem;
+}
+.profile-actions .list-group-item:hover {
+   background-color: var(--sipdana-gray-100); 
+}
+
+.card {
+  background-color: var(--sipdana-card-bg);
+  border: 1px solid var(--sipdana-border-color);
+}
+.card-header {
+  background-color: var(--sipdana-white);
+  border-bottom: 1px solid var(--sipdana-border-color);
+}
+
+/* Scrollable Transaction List */
+.transaction-list-scrollable {
+  max-height: 400px; 
+  overflow-y: auto; 
+  padding-right: 8px; 
+}
+
+/* Styling Scrollbar (Opsional, hanya untuk browser Webkit seperti Chrome/Safari/Edge) */
+.transaction-list-scrollable::-webkit-scrollbar {
+  width: 6px; 
+}
+.transaction-list-scrollable::-webkit-scrollbar-track {
+  background: transparent; 
+  margin: 5px 0; 
+}
+.transaction-list-scrollable::-webkit-scrollbar-thumb {
+  background-color: var(--sipdana-gray-300);
+  border-radius: 10px;
+  border: 1px solid var(--sipdana-white); 
+}
+.transaction-list-scrollable::-webkit-scrollbar-thumb:hover {
+  background-color: var(--sipdana-gray-500); 
+}
+
+
+.transaction-list-inner .list-group-item {
+    border-bottom: 1px solid var(--sipdana-border-color) !important;
+}
+
+.transaction-list-inner .list-group-item:last-child {
+    border-bottom: none !important;
+}
+
+.transaction-list-inner .list-group-item {
+    border-top: none !important;
+}
