@@ -1,20 +1,21 @@
-import axios from 'axios';
+import axios from "axios";
+const LOCAL_API_URL = "http://localhost:5001/api";
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'https://api.ryhnnas.web.id/sipdana/api',
+  baseURL: import.meta.env.VITE_API_URL || LOCAL_API_URL,
 });
 
 api.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem('sipdana-token');
+    const token = localStorage.getItem("sipdana-token");
     if (token) {
-      config.headers['Authorization'] = `Bearer ${token}`;
+      config.headers["Authorization"] = `Bearer ${token}`;
     }
     return config;
   },
   (error) => {
     return Promise.reject(error);
-  }
+  },
 );
 
 export default api;
